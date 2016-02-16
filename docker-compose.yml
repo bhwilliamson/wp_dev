@@ -1,0 +1,30 @@
+cdc_wp:
+    image: wordpress:4.4.2
+    links:
+        - cdc_wp_db:mysql
+    ports:
+        - 8080:80
+    container_name: cdc_wp
+    environment:
+        DB_NAME: cdc_wordpress
+    working_dir: /var/www/html
+    volumes:
+        - ./wp-content/uploads:/var/www/html/wp-content/uploads
+        - ./wp-content/plugins:/var/www/html/wp-content/plugins
+        - ./wp-content/themes:/var/www/html/wp-content/themes
+cdc_wp_db:
+    image: mysql:5.7.5
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: cdc_wordpress
+    container_name: cdc_wp_db 
+cdc_wp_phpmyadmin:
+    image: corbinu/docker-phpmyadmin
+    links:
+        - cdc_wp_db:mysql
+    ports:
+        - 8181:80
+    environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: root
+    container_name: cdc_wp_phpmyadmin
