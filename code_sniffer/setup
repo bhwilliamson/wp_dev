@@ -1,0 +1,9 @@
+#!/bin/bash
+
+docker build -t cdc_wpcs:1.0 .
+
+a='export PATH=$PATH:'
+b="$(pwd)"
+echo $a$b >> ~/.bashrc
+
+

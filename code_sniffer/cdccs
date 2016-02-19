@@ -1,0 +1,4 @@
+#!/bin/bash
+echo 'Running Code Sniffer.....'
+docker run --rm -v $(pwd):/usr/src/wcms2/src/ cdc_wpcs:1.0 phpcs . > phpcs.log
+echo 'Done, results written to phpcs.log'

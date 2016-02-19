@@ -1,0 +1,4 @@
+#!/bin/bash
+echo 'Running Code Beautifier and Fixer.....'
+docker run --rm -v $(pwd):/usr/src/wcms2/src/ cdc_wpcs:1.0 phpcbf . > phpcbf.log
+echo 'Done, results written to phpcbf.log'
