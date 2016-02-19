@@ -37,6 +37,4 @@ WordPress URL: http://localhost:8080
 phpmyadmin URL: http://localhost:8181
 WordPress database name: cdc_wordpress
 
-
 There is a volume for uploads, but its contents should be ignored by git and not checked into version control.
-
